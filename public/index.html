@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11110f">
+  <meta name="description" content="CARAXES AI — your intelligent workspace.">
+  <title>CARAXES AI</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">C</div>
+        <div><div class="brand-name">CARAXES</div><div class="brand-sub">INTELLIGENCE</div></div>
+        <button class="icon-btn mobile-close" id="closeSidebar" aria-label="Close menu">×</button>
+      </div>
+      <button class="new-chat" id="newChat"><span>＋</span> New chat</button>
+      <div class="nav-label">WORKSPACE</div>
+      <button class="nav-item active" data-view="chat"><span>◫</span> Chat</button>
+      <button class="nav-item" data-view="image"><span>▧</span> Image studio <small>API needed</small></button>
+      <button class="nav-item" data-view="video"><span>▣</span> Video studio <small>API needed</small></button>
+      <button class="nav-item" data-view="audio"><span>♫</span> Voice tools</button>
+      <button class="nav-item" data-view="files"><span>▤</span> Documents</button>
+      <div class="history-heading"><span class="nav-label">RECENT CHATS</span><button id="clearHistory" title="Clear history">···</button></div>
+      <div class="history-list" id="historyList"></div>
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div><span id="connectionText">Checking connection…</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="openSidebar" aria-label="Open menu">☰</button>
+        <div class="crumb">Workspace <span>/</span> <b id="topTitle">New conversation</b></div>
+        <div class="top-right"><span class="online-dot"></span><span>CARAXES ONLINE</span></div>
+      </header>
+
+      <section class="chat-view view active" id="chatView">
+        <div class="chat-scroll" id="chatScroll">
+          <div class="welcome" id="welcome">
+            <div class="eyebrow"><span></span> YOUR PERSONAL AI WORKSPACE</div>
+            <h1>Clarity begins<br><em>with a question.</em></h1>
+            <p>Think, create and explore with CARAXES AI.</p>
+            <div class="suggestions">
+              <button class="suggestion" data-prompt="Explain a difficult topic in simple words."><b>Learn something</b><span>Make a complex topic simple</span></button>
+              <button class="suggestion" data-prompt="Help me plan a creative project from start to finish."><b>Plan a project</b><span>Turn an idea into a clear plan</span></button>
+              <button class="suggestion" data-prompt="Give me five original ideas for a useful website."><b>Explore ideas</b><span>Find a fresh direction</span></button>
+            </div>
+          </div>
+          <div class="messages" id="messages" aria-live="polite"></div>
+        </div>
+        <div class="composer-wrap">
+          <div class="attachment-chip" id="attachmentChip" hidden></div>
+          <form class="composer" id="chatForm">
+            <textarea id="messageInput" rows="1" placeholder="Message CARAXES AI…" aria-label="Message CARAXES AI"></textarea>
+            <div class="composer-bottom">
+              <div class="composer-tools">
+                <label class="tool-btn" title="Attach a text document">＋<input type="file" id="fileInput" accept=".txt,.md,.csv,.json,.log" hidden></label>
+                <button type="button" class="tool-btn" id="voiceInput" title="Voice input">⌁</button>
+                <span class="tool-hint">Enter to send · Shift + Enter for a new line</span>
+              </div>
+              <button class="send-btn" id="sendBtn" type="submit" aria-label="Send message">↑</button>
+            </div>
+          </form>
+          <div class="disclaimer">CARAXES AI can make mistakes. Check important information.</div>
+        </div>
+      </section>
+
+      <section class="view tool-view" id="imageView"><div class="tool-card"><div class="tool-kicker">CREATIVE STUDIO</div><h2>Image generation</h2><p>Connect an image-generation provider to enable this studio. No fake generation button is shown.</p><span class="status-label">PROVIDER INTEGRATION REQUIRED</span></div></section>
+      <section class="view tool-view" id="videoView"><div class="tool-card"><div class="tool-kicker">CREATIVE STUDIO</div><h2>Video generation</h2><p>Video generation needs a separate provider, API credentials and usage budget. This section is prepared for that integration.</p><span class="status-label">PROVIDER INTEGRATION REQUIRED</span></div></section>
+      <section class="view tool-view" id="audioView"><div class="tool-card"><div class="tool-kicker">VOICE TOOLS</div><h2>Speak or listen</h2><p>Voice input uses browser speech recognition where supported. Text-to-speech uses your device's built-in voices.</p><div class="audio-actions"><button class="primary-btn" id="testVoice">Test text-to-speech</button><button class="secondary-btn" id="stopVoice">Stop audio</button></div><span class="status-label" id="voiceSupport">Checking browser support…</span></div></section>
+      <section class="view tool-view" id="filesView"><div class="tool-card"><div class="tool-kicker">YOUR WORKSPACE</div><h2>Documents</h2><p>Attach TXT, Markdown, CSV, JSON or LOG files in a chat and ask CARAXES AI about their contents. PDF and Word parsing need an additional document-processing integration.</p><span class="status-label">TEXT FILES SUPPORTED</span></div></section>
+    </main>
+  </div>
+  <div class="mobile-scrim" id="scrim"></div>
+  <script src="/app.js" defer></script>
+</body>
+        </html>
